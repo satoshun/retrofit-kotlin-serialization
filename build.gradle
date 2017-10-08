@@ -1,0 +1,26 @@
+buildscript {
+  ext.kotlin_version = '1.1.51'
+  ext.serialization_version = '0.1.1'
+  repositories {
+    google()
+    jcenter()
+    maven { url "https://kotlin.bintray.com/kotlinx" }
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.0.0-beta7'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:$serialization_version"
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven { url "https://kotlin.bintray.com/kotlinx" }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
