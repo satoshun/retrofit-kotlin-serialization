@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.github.satoshun.retrofit.converter.kotlinserialization.SerializationConverterFactory
+import com.github.satoshun.retrofit.converter.kotlinserialization.example.data.GitHub
+import com.github.satoshun.retrofit.converter.kotlinserialization.example.data.User
 import kotlinx.android.synthetic.main.main_act.*
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.http.GET
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         .build()
 
     val gitHub = retrofit.create(GitHub::class.java)
-    gitHub.user().enqueue(object : Callback<User> {
+    gitHub.user("satoshun").enqueue(object : Callback<User> {
       override fun onFailure(call: Call<User>, e: Throwable) {
         Timber.e(e, "fail")
       }
@@ -45,17 +44,3 @@ class MainActivity : AppCompatActivity() {
     })
   }
 }
-
-
-interface GitHub {
-  @GET("users/satoshun")
-  fun user(): Call<User>
-}
-
-
-@Serializable
-data class User(
-    @SerialName("name") val name: String,
-    @SerialName("login") val login: String,
-    @SerialName("avatar_url") val avatarUrl: String
-)
