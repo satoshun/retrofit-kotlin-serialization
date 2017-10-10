@@ -24,6 +24,7 @@ android {
 
 dependencies {
   implementation project(':retrofit-converter-kotlinserialization')
+//  implementation 'com.github.satoshun:RetrofitKotlinSerialization:0.1.0'
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"

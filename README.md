@@ -1,6 +1,6 @@
 # Retrofit Converter of Kotlin serialization
 
-[![CircleCI](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization.svg?style=svg)](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization)
+[![CircleCI](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization.svg?style=svg)](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization) [![](https://jitpack.io/v/satoshun/RetrofitKotlinSerialization.svg)](https://jitpack.io/#satoshun/RetrofitKotlinSerialization)
 
 A `Converter` which uses [Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization) for [Retrofit](https://github.com/square/retrofit) for serialization to and from JSON.
 
