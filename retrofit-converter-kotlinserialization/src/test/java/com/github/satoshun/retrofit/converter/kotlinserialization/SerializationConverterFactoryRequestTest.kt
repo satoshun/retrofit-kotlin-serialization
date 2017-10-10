@@ -12,17 +12,17 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.http.GET
 
-interface Service {
-  @GET("/")
-  fun getUser(): Call<User>
-}
+class SerializationConverterFactoryRequestTest {
 
-@Serializable
-class User(
-    val name: String
-)
+  interface Service {
+    @GET("/")
+    fun getUser(): Call<User>
+  }
 
-class SerializationConverterFactoryTest {
+  @Serializable
+  class User(
+      val name: String
+  )
 
   @Rule
   @JvmField

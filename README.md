@@ -1,6 +1,6 @@
 # Retrofit Converter of Kotlin serialization
 
-It convert JSON request/response by [Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization) for [Retrofit](https://github.com/square/retrofit).
+A `Converter` which uses [Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization) for [Retrofit](https://github.com/square/retrofit) for serialization to and from JSON.
 
 
 ## usage
@@ -11,6 +11,7 @@ val retrofit = Retrofit.Builder()
     .addConverterFactory(SerializationConverterFactory.create())
     .build()
 ```
+
 
 ## notes
 
