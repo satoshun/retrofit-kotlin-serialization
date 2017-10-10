@@ -10,11 +10,12 @@ import java.io.IOException
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
-class SerializationConverterFactory : Converter.Factory() {
+class SerializationConverterFactory(private val json: JSON) : Converter.Factory() {
   companion object {
-    fun create(): SerializationConverterFactory {
-      return SerializationConverterFactory()
-    }
+    fun create(): SerializationConverterFactory = SerializationConverterFactory(JSON.plain)
+    fun createNonStrict(): SerializationConverterFactory = SerializationConverterFactory(JSON.nonstrict)
+    fun createIndented(): SerializationConverterFactory = SerializationConverterFactory(JSON.indented)
+    fun createUnquoted(): SerializationConverterFactory = SerializationConverterFactory(JSON.unquoted)
   }
 
   override fun responseBodyConverter(
@@ -23,9 +24,9 @@ class SerializationConverterFactory : Converter.Factory() {
       retrofit: Retrofit
   ): Converter<ResponseBody, *> {
     return when (type) {
-      is Class<*> -> SerializationConverter<Any>(type.kotlin.serializer())
+      is Class<*> -> SerializationConverter<Any>(json, type.kotlin.serializer())
       is ParameterizedType -> {
-        SerializationConverter<Any>((type.rawType as Class<*>).kotlin.serializer())
+        SerializationConverter<Any>(json, (type.rawType as Class<*>).kotlin.serializer())
       }
       else -> throw IllegalArgumentException("not support type: $type")
     }
@@ -34,11 +35,12 @@ class SerializationConverterFactory : Converter.Factory() {
 
 
 internal class SerializationConverter<T>(
+    private val json: JSON,
     private val type: KSerializer<out Any>
 ) : Converter<ResponseBody, T> {
 
   @Throws(IOException::class)
   override fun convert(value: ResponseBody): T? {
-    return JSON.nonstrict.parse(type as KSerializer<T>, value.string())
+    return json.parse(type as KSerializer<T>, value.string())
   }
 }

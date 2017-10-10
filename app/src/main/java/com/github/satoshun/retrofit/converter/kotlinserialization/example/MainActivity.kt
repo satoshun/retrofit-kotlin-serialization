@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com/")
-        .addConverterFactory(SerializationConverterFactory.create())
+        .addConverterFactory(SerializationConverterFactory.createNonStrict())
         .build()
 
     val gitHub = retrofit.create(GitHub::class.java)
