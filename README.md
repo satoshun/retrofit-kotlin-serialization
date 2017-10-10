@@ -37,7 +37,10 @@ val retrofit = Retrofit.Builder()
     .build()
 ```
 
+## install
 
-## notes
+```gradle
+maven { url 'https://jitpack.io' }
 
-experimental
+implementation 'com.github.satoshun:RetrofitKotlinSerialization:0.1.0'
+```
