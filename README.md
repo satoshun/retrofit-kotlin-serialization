@@ -14,6 +14,29 @@ val retrofit = Retrofit.Builder()
     .build()
 ```
 
+We can use a nonstrict mode
+
+```kotlin
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://api.github.com/")
+    .addConverterFactory(SerializationConverterFactory.createNonStrict())
+    .build()
+```
+
+or indented, unquoted mode
+
+```kotlin
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://api.github.com/")
+    .addConverterFactory(SerializationConverterFactory.createIndented())
+    .build()
+
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://api.github.com/")
+    .addConverterFactory(SerializationConverterFactory.createUnquoted())
+    .build()
+```
+
 
 ## notes
 
