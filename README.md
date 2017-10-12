@@ -1,6 +1,6 @@
 # Retrofit Converter of Kotlin serialization
 
-[![CircleCI](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization.svg?style=svg)](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization) [![](https://jitpack.io/v/satoshun/RetrofitKotlinSerialization.svg)](https://jitpack.io/#satoshun/RetrofitKotlinSerialization)
+[![CircleCI](https://circleci.com/gh/satoshun/retrofit-kotlin-serialization.svg?style=svg)](https://circleci.com/gh/satoshun/RetrofitKotlinSerialization) [![](https://jitpack.io/v/satoshun/retrofit-kotlin-serialization.svg)](https://jitpack.io/#satoshun/retrofit-kotlin-serialization)
 
 A `Converter` which uses [Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization) for [Retrofit](https://github.com/square/retrofit) for serialization to and from JSON.
 
@@ -42,5 +42,5 @@ val retrofit = Retrofit.Builder()
 ```gradle
 maven { url 'https://jitpack.io' }
 
-implementation 'com.github.satoshun:RetrofitKotlinSerialization:0.1.0'
+implementation 'com.github.satoshun:retrofit-kotlin-serialization:0.1.0'
 ```
