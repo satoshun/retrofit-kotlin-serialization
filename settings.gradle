@@ -1,2 +1,2 @@
-include ':app'
 include ':retrofit-converter-kotlinserialization'
+include ':app'
