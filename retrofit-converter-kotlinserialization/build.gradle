@@ -9,14 +9,14 @@ apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'kotlinx-serialization'
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-  implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+  compile "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
 
-  implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+  compile 'com.squareup.retrofit2:retrofit:2.3.0'
 
-  testImplementation 'junit:junit:4.12'
-  testImplementation 'com.google.truth:truth:0.36'
-  testImplementation 'com.squareup.okhttp3:okhttp:3.9.0'
-  testImplementation 'com.squareup.okhttp3:mockwebserver:3.9.0'
+  testCompile 'junit:junit:4.12'
+  testCompile 'com.google.truth:truth:0.36'
+  testCompile 'com.squareup.okhttp3:okhttp:3.9.0'
+  testCompile 'com.squareup.okhttp3:mockwebserver:3.9.0'
 }
