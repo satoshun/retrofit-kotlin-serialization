@@ -1,26 +1,12 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlinx-serialization'
-
-android {
-  compileSdkVersion 26
-  buildToolsVersion "27.0.2"
-
-  defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 26
-    versionCode 1
-    versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-    }
+buildscript {
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+    classpath "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:${serialization_version}"
   }
 }
+
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'kotlinx-serialization'
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -33,8 +19,4 @@ dependencies {
   testImplementation 'com.google.truth:truth:0.36'
   testImplementation 'com.squareup.okhttp3:okhttp:3.9.0'
   testImplementation 'com.squareup.okhttp3:mockwebserver:3.9.0'
-
-  androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
 }
