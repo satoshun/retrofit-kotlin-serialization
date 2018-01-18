@@ -20,6 +20,6 @@ task clean(type: Delete) {
 }
 
 ext {
-  kotlin_version = '1.2.10'
+  kotlin_version = '1.2.20'
   serialization_version = '0.4'
 }
